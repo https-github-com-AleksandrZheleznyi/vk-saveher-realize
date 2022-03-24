@@ -19,15 +19,18 @@ function UnityProgress(progress)
 // value - 0 to 1
 function setLoaderProgressTo(value, duration)
 {
-  filledProgress.animate(
-      [
-        { width: (value * 100) + "%" }
-      ],
-      {
-        duration: duration,
-        fill: "forwards"
-      }
-  );
+    if(duration == null)
+        duration = 300;
+    
+    filledProgress.animate(
+        [
+            { width: (value * 100) + "%" }
+        ],
+        {
+            duration: duration,
+            fill: "forwards"
+        }
+    );
 }
 
 window.onlanguagechange = function(event) 
