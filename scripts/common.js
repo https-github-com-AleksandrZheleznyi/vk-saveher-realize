@@ -1,7 +1,7 @@
 var IsMobilePlatform = false;
 
 let cachedConfigFile = null;
-let configUrl = 'https://spgames.s3.ap-south-1.amazonaws.com/save-her/vkgames/0.1/RemoteConfig.json';
+let configUrl = 'https://spgames.s3.ap-south-1.amazonaws.com/save-her/vkgames/0.1.1/RemoteConfig.json';
 
 function LoadConfig(successCallback, errorCallback)
 {
@@ -59,6 +59,12 @@ function SendFailedMessage(request, parameters)
 {
     if(request == null) return;
     BaseSendMessage(request.gameObjectName, request.failedMethodName, parameters);
+}
+
+function SendClosedMessage(request)
+{
+    if(request == null) return;
+    BaseSendMessage(request.gameObjectName, request.closedMethodName);
 }
 
 
