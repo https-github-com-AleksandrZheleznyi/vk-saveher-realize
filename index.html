@@ -22,21 +22,20 @@
       window.alert = console.log;
       var unityInstance = null;
     </script>
-    
   </head>
-  <body style="background-color: #0B0B0BFF;">
-    <div id="unity-container" style="position: absolute; width: 100%; height: 100%; left: 0px;  top: 0px;">
-      <canvas id="unity-canvas" style="position: absolute; width: 100%; height: 100%; left: 0px;  top: 0px;"></canvas>
+  <body style="background-color: #0B0B0BFF; overflow: hidden;">
+    <div id="unity-container" style="position: absolute; width: 100%; height: 100%; left: 0px;  top: 0px; overflow: hidden;">
+      <canvas id="unity-canvas" style="position: absolute; width: 100%; height: 100%; left: 0px;  top: 0px; overflow: hidden;"></canvas>
     </div>
     
     
     <div id="vk_ads_bottom_banner" style="width:100%;height:10%;max-height:120px;position:absolute;bottom: 10%;z-index: 10000;display: none;overflow: hidden;background-color: rgba(222, 222, 222, 0.183);"></div>              <div id="yandex_bottom_banner" style="width:100%;height:10%;max-height:120px;position:absolute;bottom: 00%;z-index: 10000;display: none;overflow: hidden;"></div>
     <div id="loader">
       <div id="loader-area">
-        <span id="loader-area__label" style="color: #FFFFFFFF"></span>
+        <span id="loader-area__label" style="color: #FFE98FFF"></span>
       </div>
-      <div id=loader-progress style="background-color: #FFE98FFF;">
-        <div id="loader-progress__filled" style="background-color: #D9B303FF;"></div>
+      <div id=loader-progress style="background-color: #D9B303FF;">
+        <div id="loader-progress__filled" style="background-color: #FFE98FFF;"></div>
       </div>
     </div>
     <script>
@@ -48,7 +47,7 @@
         streamingAssetsUrl: "StreamingAssets",
         companyName: "JerryFrozen",
         productName: "SaveHer",
-        productVersion: "0.1.1",
+        productVersion: "0.3",
       };
 
       const container = document.querySelector("#unity-container");
@@ -56,6 +55,8 @@
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         IsMobilePlatform = true;
+        environment.deviceInfo.isMobile = true;
+        
         container.className = "unity-mobile";
         config.devicePixelRatio = 1;
       }
